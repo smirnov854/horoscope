@@ -1,0 +1,56 @@
+:root {
+  --bs-font-sans-serif: arial;
+}
+a {
+  color: #212529;
+}
+.pink {
+  background-color: #bd01ff;
+  color: #fff;
+}
+.text-pink {
+  color: #8b00bc;
+}
+.btn-pink {
+  background-color: #bd01ff;
+  color: #fff;
+}
+.btn-pink:hover {
+  background-color: #8b00bc;
+  color: #fff;
+}
+.navbar-pink {
+  background-color: #bd01ff;
+  color: #fff;
+}
+.navbar-pink .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: .5em;
+  vertical-align: .6em;
+  content: "";
+  border-top: .4em solid;
+  border-right: .4em solid transparent;
+  border-bottom: 0;
+  border-left: .4em solid transparent;
+}
+.avatar {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 100%;
+  width: 36px;
+  height: 36px;
+  vertical-align: bottom;
+}
+.fade-gradient {
+  position: relative;
+}
+.fade-gradient:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 -160px 60px -80px rgba(255, 255, 255, 1);
+}

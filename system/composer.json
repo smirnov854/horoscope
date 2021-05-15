@@ -1,0 +1,7 @@
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.4",
+        "better/nanoid": "^0.0.1",
+        "erusev/parsedown": "^1.7"
+    }
+}
