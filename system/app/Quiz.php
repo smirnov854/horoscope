@@ -140,19 +140,7 @@ class Quiz
         Util::json(['link' => Config::SERVER_NAME . '/q/' . $link]);
     }
 
-    static public function generate_quiz(){
-        $ch = curl_init();
-        
-        curl_setopt($ch, CURLOPT_URL, 'https://api.rebrandly.com/v1/links');
-        
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-        $data = curl_exec($ch);
-        curl_close($ch);
-    }
+   
 
     static function emptyTemplate()
     {

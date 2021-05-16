@@ -15,6 +15,7 @@ require_once __DIR__ . '/Page.php';
 require_once __DIR__ . '/Auth.php';
 require_once __DIR__ . '/Quiz.php';
 require_once __DIR__ . '/Admin.php';
+require_once __DIR__ . '/ShortLinkRebrandly.php';
 
 class App
 {
