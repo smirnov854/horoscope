@@ -43,9 +43,9 @@ class Route
     {
         
         $requestLine = $_SERVER['REQUEST_METHOD'] . ' ' . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        /*
+        
         var_dump($requestLine);
-        die();*/
+        die();
         foreach (self::$routes as $pattern => $info) {
             
             $parts = explode(' ', $pattern);
