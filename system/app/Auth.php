@@ -208,14 +208,14 @@ class Auth
         Util::json(['ok' => true]);
     }
 
-    static function verifyEmail($method,$hash,$email)
+    static function verifyEmail()
     {
         self::logout();
 
         $error = false;
 
-        //$email = trim($_GET['email'] ?? '');
-        //$hash = trim($_GET['code'] ?? '');
+        $email = trim($_GET['email'] ?? '');
+        $hash = trim($_GET['code'] ?? '');
 
         var_dump($_GET);
         var_dump($hash);
