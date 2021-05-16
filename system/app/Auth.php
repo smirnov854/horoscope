@@ -227,7 +227,8 @@ class Auth
                 $error = true;
             }
         }
-
+        var_dump($info);
+        die();
         if (!$error) {
             $info = json_decode($info, true);
             if (!$info['emailVerificationHash'] || $info['emailVerificationHash'] !== $hash) {
