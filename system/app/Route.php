@@ -6,7 +6,7 @@ class Route
         'GET /' => ['Page::index', ['user', 'admin']],
         'GET /register' => ['Auth::registerForm', []],
         'POST /register' => ['Auth::register', []],
-        'GET /verify-email/([\w\-\_]+)/([\w\-\_]+)' => ['Auth::verifyEmail', []],
+        'GET /verify-email/([\w\-\_]+)/[0-9a-z]+@[a-z]' => ['Auth::verifyEmail', []],
         'GET /login' => ['Auth::loginForm', []],
         'POST /login' => ['Auth::login', []],
         'GET /forgot' => ['Auth::forgotForm', []],
@@ -35,7 +35,7 @@ class Route
         'POST /domains' => ['Quiz::saveDomains', ['admin']],
         'GET /admin-edit-template' => ['Admin::editTemplate', ['admin']],
         'POST /admin-edit-template' => ['Quiz::saveBaseTemplate', ['admin']],
-        'GET /short_link_prepare' => ['ShortLinkRebrandly::genarate_quiz_link', ['admin']],
+        'GET /short_link_prepare' => ['ShortLinkRebrandly::genarate_quiz_link', []],
         
     ];
 
