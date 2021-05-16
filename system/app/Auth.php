@@ -208,7 +208,7 @@ class Auth
         Util::json(['ok' => true]);
     }
 
-    static function verifyEmail($hash,$email)
+    static function verifyEmail($method,$hash,$email)
     {
         self::logout();
 
