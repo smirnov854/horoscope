@@ -208,17 +208,16 @@ class Auth
         Util::json(['ok' => true]);
     }
 
-    static function verifyEmail($email)
+    static function verifyEmail()
     {
         self::logout();
 
         $error = false;
 
-        //$email = trim($_GET['email'] ?? '');
-        //$hash = trim($_GET['code'] ?? '');
+        $email = trim($_GET['email'] ?? '');
+        $hash = trim($_GET['code'] ?? '');
 
-        var_dump($email);
-        var_dump($hash);
+        
         if (empty($hash)) {
             $error = true;
         }
@@ -229,8 +228,7 @@ class Auth
                 $error = true;
             }
         }
-        var_dump($info);
-        die();
+       
         if (!$error) {
             $info = json_decode($info, true);
             if (!$info['emailVerificationHash'] || $info['emailVerificationHash'] !== $hash) {
