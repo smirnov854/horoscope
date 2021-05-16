@@ -217,6 +217,8 @@ class Auth
         $email = trim($_GET['email'] ?? '');
         $hash = trim($_GET['code'] ?? '');
 
+        var_dump($email);
+        var_dump($hash);
         if (!$email || !$hash) {
             $error = true;
         }
