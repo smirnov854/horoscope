@@ -229,7 +229,7 @@ class Auth
                 $error = true;
             }
         }
-        var_dump($info);
+        
        
         if (!$error) {
             $info = json_decode($info, true);
@@ -239,7 +239,7 @@ class Auth
         }
 
         if (!$error) {
-            if ($info['emailVerified']) {
+            if (!$info['emailVerified']) {
                 $error = true;
             }
         }
