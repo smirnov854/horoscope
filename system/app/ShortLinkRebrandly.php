@@ -3,7 +3,7 @@
 class ShortLinkRebrandly
 {
     
-    private $api_key = "cbb387f8116d4ccbb4bb7a63ecd565d4";
+    static $api_key = "cbb387f8116d4ccbb4bb7a63ecd565d4";
 
 
     static public function genarate_quiz_link($link=FALSE){
@@ -14,7 +14,7 @@ class ShortLinkRebrandly
 
         $params = [
             "Content-Type"=>"application/json",
-            "apikey"=> self::api_key,            
+            "apikey"=> self::$api_key,            
         ];
 
         curl_setopt($ch, CURLOPT_POST, 1);
