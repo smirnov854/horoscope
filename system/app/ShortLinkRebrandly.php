@@ -6,7 +6,7 @@ class ShortLinkRebrandly
     private $api_key = "cbb387f8116d4ccbb4bb7a63ecd565d4";
 
 
-    static public function genarate_quiz_link($link){
+    static public function genarate_quiz_link($link=FALSE){
         $link = "http://project.telegrammbots.ru/quiz";
         $ch = curl_init();
 
