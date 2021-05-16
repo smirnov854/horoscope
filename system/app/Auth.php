@@ -213,8 +213,7 @@ class Auth
         self::logout();
 
         $error = false;
-        var_dump($_GET);
-        die();
+        
 
         $email = trim($_GET['email'] ?? '');
         $hash = trim($_GET['code'] ?? '');
