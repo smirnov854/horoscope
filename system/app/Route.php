@@ -35,6 +35,8 @@ class Route
         'POST /domains' => ['Quiz::saveDomains', ['admin']],
         'GET /admin-edit-template' => ['Admin::editTemplate', ['admin']],
         'POST /admin-edit-template' => ['Quiz::saveBaseTemplate', ['admin']],
+        'GET /short_link_prepare' => ['ShortLinkRebrandly::genarate_quiz_link', ['admin']],
+        
     ];
 
     static function dispatch()
