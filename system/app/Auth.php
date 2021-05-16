@@ -214,8 +214,8 @@ class Auth
 
         $error = false;
 
-        $email = trim($_GET['email'] ?? '');
-        $hash = trim($_GET['code'] ?? '');
+        //$email = trim($_GET['email'] ?? '');
+        //$hash = trim($_GET['code'] ?? '');
 
         var_dump($_GET);
         var_dump($hash);
