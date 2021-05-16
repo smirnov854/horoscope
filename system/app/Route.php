@@ -6,7 +6,7 @@ class Route
         'GET /' => ['Page::index', ['user', 'admin']],
         'GET /register' => ['Auth::registerForm', []],
         'POST /register' => ['Auth::register', []],
-        'GET /verify-email/([\w\-\_]+)/[0-9a-z]+@[a-z]' => ['Auth::verifyEmail', []],
+        'GET /verify-email/([\w\-\_]+)' => ['Auth::verifyEmail', []],
         'GET /login' => ['Auth::loginForm', []],
         'POST /login' => ['Auth::login', []],
         'GET /forgot' => ['Auth::forgotForm', []],
