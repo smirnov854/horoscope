@@ -208,7 +208,7 @@ class Auth
         Util::json(['ok' => true]);
     }
 
-    static function verifyEmail($hash)
+    static function verifyEmail($hash,$email)
     {
         self::logout();
 
@@ -217,7 +217,7 @@ class Auth
         //$email = trim($_GET['email'] ?? '');
         //$hash = trim($_GET['code'] ?? '');
 
-        var_dump($_GET);
+        var_dump($email);
         var_dump($hash);
         if (!$email || !$hash) {
             $error = true;
