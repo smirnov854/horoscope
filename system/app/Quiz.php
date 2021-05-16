@@ -137,7 +137,7 @@ class Quiz
             );
         }
         
-        Util::json(['link' => 'https://' . Config::SERVER_NAME . '/q/' . $link]);
+        Util::json(['link' => Config::SERVER_NAME . '/q/' . $link]);
     }
 
     static public function generate_quiz(){
