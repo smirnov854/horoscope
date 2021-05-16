@@ -31,8 +31,10 @@ class Route
         'POST /q/([\w\-\_]+)/result' => ['Quiz::result', []],
         'GET /quizes' => ['Quiz::processedList', ['user', 'admin']],
         'GET /quizes/(\d+)' => ['Quiz::processedItem', ['user', 'admin']],
-        'GET /domains' => ['Quiz::domains', ['admin']],
+        'GET /domains' => ['Quiz::domains', ['admin']],        
         'POST /domains' => ['Quiz::saveDomains', ['admin']],
+        'GET /admin-edit-template' => ['Admin::editTemplate', ['admin']],
+        'POST /admin-edit-template' => ['Quiz::saveBaseTemplate', ['admin']],
     ];
 
     static function dispatch()
