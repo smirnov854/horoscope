@@ -6,7 +6,7 @@ class Route
         'GET /' => ['Page::index', ['user', 'admin']],
         'GET /register' => ['Auth::registerForm', []],
         'POST /register' => ['Auth::register', []],
-        'GET /verify-email' => ['Auth::verifyEmail', []],
+        'GET /verify-email/([\w\-\_]+)' => ['Auth::verifyEmail', []],
         'GET /login' => ['Auth::loginForm', []],
         'POST /login' => ['Auth::login', []],
         'GET /forgot' => ['Auth::forgotForm', []],
@@ -43,7 +43,7 @@ class Route
     {
         
         $requestLine = $_SERVER['REQUEST_METHOD'] . ' ' . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        var_dump($_GET);
+        
         //die();
         /*
         var_dump($requestLine);
