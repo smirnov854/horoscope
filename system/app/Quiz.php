@@ -128,16 +128,17 @@ class Quiz
             );
 
             $link = $row['link'];
-        } else {
-            $link = $client->produce(8, true);
-
+        } else {                        
+            
+            $link = $client->produce(8, true);            
             Db::exec(
                 "insert quizes set user_id = ?, created_at = now(), title = ?, content = ?, link = ?",
                 [Auth::user()['id'], $title, json_encode($quiz), $link]
             );
         }
+        $res = ShortLinkRebrandly::genarate_quiz_link(Config::SERVER_NAME . '/q/' . $link);
         
-        Util::json(['link' => Config::SERVER_NAME . '/q/' . $link]);
+        Util::json(['link' => $res['link']]);
     }
 
    
