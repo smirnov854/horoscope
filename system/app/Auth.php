@@ -229,6 +229,7 @@ class Auth
                 $error = true;
             }
         }
+        var_dump($info);
        
         if (!$error) {
             $info = json_decode($info, true);
