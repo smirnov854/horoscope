@@ -53,9 +53,7 @@ class Auth
     static function register()
     {
         $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-        $email = "smirnov_e87@mail.ru";
-        $password = "123456";
+        $password = $_POST['password'] ?? '';        
 
         $user = Db::row("select id from users where email = ?", [$email]);
         if ($user) {
@@ -77,10 +75,10 @@ class Auth
             Config::SERVER_NAME,
             http_build_query(['code' => $emailVerificationHash, 'email' => $email])
         );
-        /*$ok = Mail::send($email, $subject, $body);
+        $ok = Mail::send($email, $subject, $body);
         if (!$ok) {
             Util::json(['error' => 'Регистрация в данный момент недоступна. Попробуйте позже.']);
-        }*/
+        }
 
         $quizTemplate = Quiz::emptyTemplate();
         Db::exec(
