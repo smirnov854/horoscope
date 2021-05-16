@@ -119,7 +119,7 @@ class Auth
 
         $subject = 'Восстановление доступа';
         $body = sprintf(
-            '<p>Для восстановления доступа пройдите по этой <a href="https://%s/reset?%s">ссылке</a></p>',
+            '<p>Для восстановления доступа пройдите по этой <a href="%s/reset?%s">ссылке</a></p>',
             Config::SERVER_NAME,
             http_build_query(['code' => $hash, 'email' => $email])
         );
@@ -208,14 +208,14 @@ class Auth
         Util::json(['ok' => true]);
     }
 
-    static function verifyEmail()
+    static function verifyEmail($hash,$email)
     {
         self::logout();
 
         $error = false;
 
-        $email = trim($_GET['email'] ?? '');
-        $hash = trim($_GET['code'] ?? '');
+        //$email = trim($_GET['email'] ?? '');
+        //$hash = trim($_GET['code'] ?? '');
 
         var_dump($_GET);
         var_dump($hash);
