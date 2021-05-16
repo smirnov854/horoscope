@@ -71,7 +71,7 @@ class Auth
 
         $subject = 'Регистрация в сервисе';
         $body = sprintf(
-            '<p>Для активации профиля пройдите по этой <a href="https://%s/verify-email?%s">ссылке</a></p>',
+            '<p>Для активации профиля пройдите по этой <a href="%s/verify-email?%s">ссылке</a></p>',
             Config::SERVER_NAME,
             http_build_query(['code' => $emailVerificationHash, 'email' => $email])
         );

@@ -25,8 +25,7 @@ class App
 
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();
-        }         
-        var_dump($_GET);
+        }       
         Route::dispatch();
     }
 }
