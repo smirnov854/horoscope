@@ -15,7 +15,7 @@ class Quiz
             Page::notFound();
             return;
         }
-        if($quiz['tries_amount']>=$done_tries['cnt']){
+        if($quiz['tries_amount']<=$done_tries['cnt']){
             Page::notFound('Тест уже пройден допустимое количество раз!');
             return;
         }
