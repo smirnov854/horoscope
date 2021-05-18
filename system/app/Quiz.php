@@ -10,7 +10,7 @@ class Quiz
         $done_tries = Db::row("select COUNT(*) as cnt  
                                       from quizes q
                                       LEFT JOIN processed_quize pq ON pq.quize_id = q.id
-                                      where pq.id IS NOT NULL q.link = ?", [$link]);
+                                      where pq.id IS NOT NULL AND q.link = ?", [$link]);
         if (!$quiz) {
             Page::notFound();
             return;
