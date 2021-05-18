@@ -254,7 +254,7 @@ class Quiz
         $list = Db::all("
             select id, q.title, pq.content, q.paid_at
             from processed_quize pq
-            LEFT JOIN quizes q
+            LEFT JOIN quizes q ON q.id=pq.quize_id
             where q.user_id = ? and pq.processed_at is not null
             order by p.quize_id, pq.processed_at desc
         ", [Auth::user()['id']]);
