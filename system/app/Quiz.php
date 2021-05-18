@@ -252,10 +252,11 @@ class Quiz
     static function processedList()
     {
         $list = Db::all("
-            select id, title, content, paid_at
-            from quizes
-            where user_id = ? and processed_at is not null
-            order by processed_at desc
+            select id, q.title, pq.content, q.paid_at
+            from processed_quize pq
+            LEFT JOIN quizes q
+            where q.user_id = ? and pq.processed_at is not null
+            order by p.quize_id, pq.processed_at desc
         ", [Auth::user()['id']]);
 
         $quizes = ['paid' => [], 'notPaid' => []];
