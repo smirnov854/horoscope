@@ -275,9 +275,10 @@ class Quiz
     static function processedItem(int $id)
     {
         $quiz = Db::row("
-            select id, title, content, paid_at
-            from quizes
-            where user_id = ? and processed_at is not null and id = ?
+            select pq.id, q.title, pq.content, q.paid_at
+            from processed_quize pq
+            LEFT JOIN quizes q ON q.id=pq.quize_id
+            where q.user_id = ? and pq.processed_at is not null and pq.id = ?
             order by processed_at desc
         ", [Auth::user()['id'], $id]);
 
