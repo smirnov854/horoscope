@@ -6,9 +6,17 @@ class Quiz
 {
     static function process($link)
     {
-        $quiz = Db::row("select id, processed_at, content from quizes where link = ?", [$link]);
+        $quiz = Db::row("select id, processed_at, content, tries_amount from quizes where link = ?", [$link]);
+        $done_tries = Db::row("select COUNT(*) as cnt  
+                                      from quizes q
+                                      LEFT JOIN processed_quize pq ON pq.quize_id = q.id
+                                      where q.link = ?", [$link]);
         if (!$quiz) {
             Page::notFound();
+            return;
+        }
+        if($quiz['tries_amount']>=$done_tries['cnt']){
+            Page::notFound('Тест уже пройден допустимое количество раз!');
             return;
         }
         /*
@@ -27,10 +35,12 @@ class Quiz
         if (!$quiz) {
             Util::json(['error' => 'Тест не найден']);
         }
+        /*
         if ($quiz['processed_at'] !== null) {
             Util::json(['error' => 'Тест уже пройден']);
             return;
         }
+        */
 
         $content = json_decode($quiz['content'], true);
         if (!$content) {
@@ -43,10 +53,17 @@ class Quiz
             $content[$k]['answer'] = $input[$k]['answer'] ?? 'Нет ответа';
         }
 
+
+        Db::exec(
+            "INSERT INTO  processed_quize set content = ?, processed_at = now(),quize_id = ?",
+            [json_encode($content), $quiz['id']]
+        );
+        
+        /*
         Db::exec(
             "update quizes set content = ?, processed_at = now() where id = ?",
             [json_encode($content), $quiz['id']]
-        );
+        );*/
 
         $gender = $content[0]['answer'];
         $zodiacSign = $content[1]['answer'];
