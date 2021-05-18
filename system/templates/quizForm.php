@@ -16,6 +16,10 @@
         <label class="mb-1">Название теста</label>
         <input type="text" class="form-control" id="title" value="<?= htmlspecialchars($quiz['title']) ?>">
       </div>
+        <div class="col-lg-6 mb-4 mx-auto">
+            <label class="mb-1">Количество прохождений</label>
+            <input type="text" class="form-control" id="amount" value="<?= htmlspecialchars($quiz['tries_amount']) ?>">
+        </div>
       <div class="col-lg-6 mb-5 mx-auto" id="questionArea">
       </div>
       <div class="d-grid col-lg-5 mb-3 mx-auto">

@@ -185,3 +185,19 @@ INSERT INTO `templates` (`id`, `content`) VALUES
 --
 ALTER TABLE `templates`
   ADD PRIMARY KEY (`id`);
+  
+  
+DROP TABLE IF EXISTS `processed_quize`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `processed_quize` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `quize_id` int NOT NULL,    
+  `processed_at` datetime DEFAULT NULL,    
+  `content` json NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `quize_id` (`quize_id`),  
+  KEY `processed_at` (`processed_at`) 
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `quizes` ADD `tries_amount` INT(4) NULL AFTER `content`;

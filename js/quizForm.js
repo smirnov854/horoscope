@@ -94,6 +94,7 @@ async function saveQuiz() {
   updateItem()
   const formData = new FormData()
   const titleInput = document.querySelector('#title')
+  const triezAmount = document.querySelector('#amount')
   if (!titleInput.value.trim()) {
     alert('Заполните название теста')
     titleInput.focus()

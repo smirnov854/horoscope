@@ -11,10 +11,12 @@ class Quiz
             Page::notFound();
             return;
         }
+        /*
         if ($quiz['processed_at'] !== null) {
             Page::notFound('Тест уже пройден');
             return;
         }
+        */
 
         Template::render('quizProcess', ['quiz' => $quiz]);
     }
@@ -69,7 +71,7 @@ class Quiz
     {
         $quiz = [];
         if ($id) {
-            $quiz = Db::row("select id, title, content, processed_at from quizes where id = ?", [$id]);
+            $quiz = Db::row("select id, title, content, tries_amount, processed_at from quizes where id = ?", [$id]);
             if (!$quiz) {
                 Page::notFound();
                 return;
@@ -80,7 +82,7 @@ class Quiz
             }
         } else {
             $quiz = Db::row(
-                "select 0 id, 'Новый тест' title, quiz_template content from users where id = ?",
+                "select 0 id, 'Новый тест' as title,  1 as tries_amount,quiz_template content from users where id = ?",
                 [Auth::user()['id']]
             );
         }
