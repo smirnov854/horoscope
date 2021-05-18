@@ -256,7 +256,7 @@ class Quiz
             from processed_quize pq
             LEFT JOIN quizes q ON q.id=pq.quize_id
             where q.user_id = ? and pq.processed_at is not null
-            order by p.quize_id, pq.processed_at desc
+            order by pq.quize_id, pq.processed_at desc
         ", [Auth::user()['id']]);
 
         $quizes = ['paid' => [], 'notPaid' => []];
