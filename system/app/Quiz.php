@@ -259,5 +259,6 @@ class Quiz
         $quiz['content'] = json_decode($quiz['content'], true);
 
         Template::render('processedItem', ['quiz' => $quiz]);
-    }
+    }    
+   
 }

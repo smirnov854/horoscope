@@ -29,14 +29,13 @@ class Route
         'GET /q/([\w\-\_]+)' => ['Quiz::process', []],
         'POST /q/([\w\-\_]+)' => ['Quiz::saveProcess', []],
         'POST /q/([\w\-\_]+)/result' => ['Quiz::result', []],
-        'GET /quizes' => ['Quiz::processedList', ['user', 'admin']],
+        'GET /history' => ['Quiz::processedList', ['user', 'admin']],
         'GET /quizes/(\d+)' => ['Quiz::processedItem', ['user', 'admin']],
         'GET /domains' => ['Quiz::domains', ['admin']],        
         'POST /domains' => ['Quiz::saveDomains', ['admin']],
         'GET /admin-edit-template' => ['Admin::editTemplate', ['admin']],
         'POST /admin-edit-template' => ['Quiz::saveBaseTemplate', ['admin']],
         'GET /short_link_prepare' => ['ShortLinkRebrandly::genarate_quiz_link', []],
-        
     ];
 
     static function dispatch()
