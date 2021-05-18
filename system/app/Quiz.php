@@ -101,7 +101,7 @@ class Quiz
             Util::json(['error' => 'Заполните название']);
         }
 
-        $title = $_POST['tries_amount'] ?? '';
+        $tries_amount = $_POST['tries_amount'] ?? '';
         if (empty($title)) {
             Util::json(['error' => 'Заполните количество прохождений']);
         }
@@ -130,8 +130,8 @@ class Quiz
             }
 
             Db::exec(
-                "update quizes set title = ?, content = ? where id = ?",
-                [$title, json_encode($quiz), $id]
+                "update quizes set title = ?, content = ?, tries_amount= ? where id = ?",
+                [$title, json_encode($quiz), $tries_amount,$id]
             );
 
             $link = $row['link'];
