@@ -252,7 +252,7 @@ class Quiz
     static function processedList()
     {
         $list = Db::all("
-            select id, q.title, pq.content, q.paid_at
+            select pq.id, q.title, pq.content, q.paid_at
             from processed_quize pq
             LEFT JOIN quizes q ON q.id=pq.quize_id
             where q.user_id = ? and pq.processed_at is not null
