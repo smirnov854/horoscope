@@ -101,6 +101,11 @@ class Quiz
             Util::json(['error' => 'Заполните название']);
         }
 
+        $title = $_POST['tries_amount'] ?? '';
+        if (empty($title)) {
+            Util::json(['error' => 'Заполните количество прохождений']);
+        }
+
         $quiz = $_POST['quiz'] ?? null;
         if (!$quiz) {
             Util::json(['error' => 'Тест не передан']);

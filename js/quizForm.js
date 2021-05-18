@@ -101,6 +101,7 @@ async function saveQuiz() {
     return
   }
   formData.append('title', titleInput.value.trim())
+  formData.append('tries_amount', triezAmount.value.trim())
   formData.append('quiz', JSON.stringify(quiz))
   const response = await fetch(location.pathname, { method: 'post', body: formData })
   if (!response.ok) {
