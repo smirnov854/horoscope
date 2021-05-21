@@ -159,7 +159,7 @@ class Quiz
                 "insert quizes set user_id = ?, created_at = now(), title = ?, content = ?, link = ?, tries_amount= ?",
                 [Auth::user()['id'], $title, json_encode($quiz), $link,$tries_amount]
             );
-        }
+        } 
         
         $res = Db::row("SELECT domain FROM domains WHERE `on`=1");
         $res['link']= $res['domain'] . '/q/' . $link;
