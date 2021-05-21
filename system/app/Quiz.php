@@ -160,7 +160,9 @@ class Quiz
                 [Auth::user()['id'], $title, json_encode($quiz), $link,$tries_amount]
             );
         }
-        $res = ShortLinkRebrandly::genarate_quiz_link(Config::SERVER_NAME . '/q/' . $link);
+        
+        $res = Db::row("SELECT domain FROM domains WHERE `on`=1");
+        $res = ShortLinkRebrandly::genarate_quiz_link($res['domain'] . '/q/' . $link);
         
         Util::json(['link' => $res['link']]);
     }

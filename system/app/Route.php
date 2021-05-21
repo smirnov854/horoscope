@@ -34,6 +34,8 @@ class Route
         'GET /domains' => ['Quiz::domains', ['admin']],        
         'POST /domains' => ['Quiz::saveDomains', ['admin']],
         'GET /admin-edit-template' => ['Admin::editTemplate', ['admin']],
+        'GET /admin-domains' => ['Admin::editDomains', ['admin']],
+        'POST /admin-domains' => ['Admin::saveDomain', ['admin']],
         'POST /admin-edit-template' => ['Quiz::saveBaseTemplate', ['admin']],
         'GET /short_link_prepare' => ['ShortLinkRebrandly::genarate_quiz_link', []],
     ];
